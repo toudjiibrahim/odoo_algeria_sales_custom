@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_saleorder_document_inherit_wilaya" inherit_id="sale.report_saleorder_document" >
+         <xpath expr="//span[@name='order_note']" position="after">
+            <div class="row mt-3 mb-3" t-if="doc.wilaya" >
+                 <div class="col-auto mw-100 mb-2">
+                    <strong>Destination Wilaya:</strong>
+                    <p class="m-0" t-field="doc.wilaya"/>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

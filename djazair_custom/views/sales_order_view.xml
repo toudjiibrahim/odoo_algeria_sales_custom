@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sale_order_form_inherit_wilaya" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.wilaya</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml" >
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="wilaya"/>
+                <label for="shipping_estimate"/>
+                <div class="o_row">
+                    <field name="shipping_estimate" widget="monetary" options="{'currency_field': 'currency_id'}" decoration-danger="shipping_estimate > 0" />
+                    <button name="action_apply_shipping"
+                            type="object"
+                            string="Add to lines"
+                            class="btn-secondary btn-sm"
+                            invisible="shipping_estimate==0"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
